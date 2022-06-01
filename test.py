@@ -14,6 +14,11 @@ def capture():
     return capture
 
 
+@pytest.fixture
+def empty_capture():
+    return DataCapture()
+
+
 def test_capture(capture):
     assert len(capture) == 5
     assert capture.max == 9
@@ -24,6 +29,7 @@ def test_stats(capture):
     stats = capture.build_stats()
     assert stats.less(4) == 2  # should return 2 (only two values 3, 3 are less than 4)
     assert stats.less(20) == 5
+    assert stats.less(1) == 0
     assert (
         stats.greater(4) == 2
     )  # should return 2 (6 and 9 are the only two values greater than 4)
@@ -38,3 +44,12 @@ def test_stats(capture):
     assert stats.between(7, 8) == 0
     assert stats.between(9, 3) == 5
     assert stats.between(5, 12) == 2
+
+
+def test_empty_capture(empty_capture):
+    assert len(empty_capture) == 0
+    assert empty_capture.min is None
+    assert empty_capture.max is None
+
+    with pytest.raises(ValueError):
+        empty_capture.build_stats()

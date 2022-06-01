@@ -23,6 +23,7 @@ def test_capture(capture):
 def test_stats(capture):
     stats = capture.build_stats()
     assert stats.less(4) == 2  # should return 2 (only two values 3, 3 are less than 4)
+    assert stats.less(20) == 5
     assert (
         stats.greater(4) == 2
     )  # should return 2 (6 and 9 are the only two values greater than 4)

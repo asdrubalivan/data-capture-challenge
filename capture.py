@@ -55,7 +55,7 @@ class Stats:
     def less(self, value):
         if self.data.min <= value <= self.data.max:
             return self.accumulated_stats[value - 1]
-        elif number > self.data.max:
+        elif value > self.data.max:
             return self.accumulated_stats[self.data.max]
         else:
             return 0

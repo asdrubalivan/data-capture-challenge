@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+__all__ = ["DataCapture", "Stats"]
+
 
 class DataCapture:
     def __init__(self):
@@ -9,6 +11,9 @@ class DataCapture:
 
     def __len__(self):
         return sum(self._dict_mapping.values())
+
+    def __repr__(self):  # pragma: no cover
+        return f"DataCapture(min:{self.min}, max:{self.max}, elements:{len(self)})"
 
     def add(self, value):
         self._dict_mapping[value] += 1
@@ -41,7 +46,7 @@ class Stats:
         self.data = data
         self.accumulated_stats = accumulated_stats
 
-    def __repr__(self):
+    def __repr__(self):  # pragma: no cover
         return f"Stats(({self.data.min=}, {self.data.max=}),{self.accumulated_stats=})"
 
     def _clamp(self, val):

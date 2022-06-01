@@ -1,7 +1,9 @@
+import pytest
 from capture import DataCapture
 
 
-def test_data():
+@pytest.fixture
+def capture():
     capture = DataCapture()
     capture.add(3)
     capture.add(9)
@@ -9,10 +11,16 @@ def test_data():
     capture.add(4)
     capture.add(6)
 
+    return capture
+
+
+def test_capture(capture):
     assert len(capture) == 5
     assert capture.max == 9
     assert capture.min == 3
 
+
+def test_stats(capture):
     stats = capture.build_stats()
     assert stats.less(4) == 2  # should return 2 (only two values 3, 3 are less than 4)
     assert (

@@ -1,7 +1,7 @@
 from capture import DataCapture
 
 
-def test_data():
+def main():
     capture = DataCapture()
     capture.add(3)
     capture.add(9)
@@ -18,4 +18,4 @@ def test_data():
 
 
 if __name__ == "__main__":
-    test_data()
+    main()

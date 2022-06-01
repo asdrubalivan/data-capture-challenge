@@ -82,7 +82,7 @@ class Stats:
     def greater(self, value):
         if self.data.min <= value <= self.data.max:
             return self.accumulated_stats[self.data.max] - self.accumulated_stats[value]
-        elif number > self.data.max:
+        elif value > self.data.max:
             return 0
         else:
             return self.accumulated_stats[self.data.max]

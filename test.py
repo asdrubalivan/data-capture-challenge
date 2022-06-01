@@ -35,6 +35,7 @@ def test_stats(capture):
     )  # should return 2 (6 and 9 are the only two values greater than 4)
     assert stats.greater(5) == 2  # Fixing another bug
     assert stats.greater(69) == 0
+    assert stats.greater(0) == 5
     assert (
         stats.between(3, 6) == 4
     )  # should return 4 (3, 3, 4 and 6 are between 3 and 6)

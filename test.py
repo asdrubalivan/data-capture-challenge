@@ -3,6 +3,7 @@ Module for app tests
 """
 
 import pytest
+import json
 from capture import DataCapture
 
 
@@ -35,6 +36,25 @@ def empty_capture() -> DataCapture:
     return DataCapture()
 
 
+@pytest.fixture
+def big_capture() -> DataCapture:
+    """
+    This is a fixture to test a capture
+    with a lot of values
+
+    Returns:
+        A DataCapture with 600 objects
+    """
+    json_data = json.load(open("fixtures/data.json", "r"))
+    capture = DataCapture()
+    capture_add = capture.add  # We cache the method here
+
+    for val in json_data:
+        capture_add(val)
+
+    return capture
+
+
 def test_capture(capture: DataCapture):
     """
     Tests capture methods
@@ -42,6 +62,27 @@ def test_capture(capture: DataCapture):
     assert len(capture) == 5
     assert capture.max == 9
     assert capture.min == 3
+
+
+def test_big_capture(big_capture: DataCapture):
+    """
+    Tests a big capture object
+    """
+    assert len(big_capture) == 600
+    assert big_capture.min == 0
+    assert big_capture.max == 999
+
+    stats = big_capture.build_stats()
+
+    assert stats.greater(868) == 84
+    assert stats.greater(998) == 2
+
+    assert stats.less(500) == 293
+    assert stats.less(2) == 1
+
+    assert stats.between(2, 100) == 50
+    assert stats.between(0, 1000) == 600
+    assert stats.between(800, 1200) == 125
 
 
 def test_stats(capture: DataCapture):

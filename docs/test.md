@@ -6,6 +6,14 @@ Functions
 ---------
 
     
+`big_capture() ‑> capture.DataCapture`
+:   This is a fixture to test a capture
+    with a lot of values
+    
+    Returns:
+        A DataCapture with 600 objects
+
+    
 `capture() ‑> capture.DataCapture`
 :   Fixture with already captured values
     
@@ -18,6 +26,10 @@ Functions
     
     Returns:
         Empty DataCapture
+
+    
+`test_big_capture(big_capture: capture.DataCapture)`
+:   Tests a big capture object
 
     
 `test_capture(capture: capture.DataCapture)`

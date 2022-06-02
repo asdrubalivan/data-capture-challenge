@@ -1,9 +1,19 @@
+"""
+Module for app tests
+"""
+
 import pytest
 from capture import DataCapture
 
 
 @pytest.fixture
-def capture():
+def capture() -> DataCapture:
+    """
+    Fixture with already captured values
+
+    Returns:
+        DataCapture with captured values
+    """
     capture = DataCapture()
     capture.add(3)
     capture.add(9)
@@ -15,17 +25,29 @@ def capture():
 
 
 @pytest.fixture
-def empty_capture():
+def empty_capture() -> DataCapture:
+    """
+    Empty capture fixture
+
+    Returns:
+        Empty DataCapture
+    """
     return DataCapture()
 
 
-def test_capture(capture):
+def test_capture(capture: DataCapture):
+    """
+    Tests capture methods
+    """
     assert len(capture) == 5
     assert capture.max == 9
     assert capture.min == 3
 
 
-def test_stats(capture):
+def test_stats(capture: DataCapture):
+    """
+    Tests that stats work correctly
+    """
     stats = capture.build_stats()
     assert stats.less(4) == 2  # should return 2 (only two values 3, 3 are less than 4)
     assert stats.less(20) == 5
@@ -48,7 +70,11 @@ def test_stats(capture):
     assert stats.between(5, 12) == 2
 
 
-def test_empty_capture(empty_capture):
+def test_empty_capture(empty_capture: DataCapture):
+    """
+    Tests that default behavior for captures
+    work correctly
+    """
     assert len(empty_capture) == 0
     assert empty_capture.min is None
     assert empty_capture.max is None

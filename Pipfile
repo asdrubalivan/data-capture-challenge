@@ -9,6 +9,7 @@ name = "pypi"
 pytest = "*"
 coverage = "*"
 black = "*"
+pdoc3 = "*"
 
 [requires]
 python_version = "3.10"
@@ -21,3 +22,5 @@ test-coverage="coverage run -m pytest test.py"
 coverage-report="coverage report"
 coverage-html="coverage html"
 serve-coverage-html="python -m http.server --directory htmlcov"
+gen-docs="pdoc capture.py main.py test.py -o docs"
+serve-docs="pdoc capture.py main.py test.py --http localhost:5000"

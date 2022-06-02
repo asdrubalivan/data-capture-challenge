@@ -1,7 +1,12 @@
+"""Entry point module for the app"""
+
 from capture import DataCapture
 
 
 def main():
+    """
+    Just a small demo of the app
+    """
     capture = DataCapture()
     capture.add(3)
     capture.add(9)

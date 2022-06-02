@@ -20,7 +20,7 @@ In order to setup you will need:
 - In the repo directory, do a `pipenv shell` command in order to create a virtual environment
 
    > **Tip** 💡: If you are in a UNIX-like operating system you can do `which python` to make sure you are not using the `python` installation of your system
-- Run `pipenv install`
+- Run `pipenv install --dev` (The `--dev` is needed because all of the packages are development dependencies)
 - And now you are done 😊
 
 ## Running

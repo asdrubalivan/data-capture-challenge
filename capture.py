@@ -25,7 +25,7 @@ class DataCapture:
     def __len__(self) -> int:
         return sum(self.dict_mapping.values())
 
-    def __repr__(self):  # pragma: no cover
+    def __repr__(self) -> str:  # pragma: no cover
         return f"DataCapture(min:{self.min}, max:{self.max}, elements:{len(self)})"  # noqa: E501
 
     def add(self, value: int) -> None:
@@ -90,10 +90,10 @@ class Stats:
         #: They are cached here so lookups are fast
         self.accumulated_stats = accumulated_stats
 
-    def __repr__(self):  # pragma: no cover
+    def __repr__(self) -> str:  # pragma: no cover
         return f"Stats(({self.data.min=}, {self.data.max=}),{self.accumulated_stats=})"  # noqa: E501
 
-    def _clamp(self, val):
+    def _clamp(self, val) -> int:
         return max(self.data.min, min(val, self.data.max))
 
     def less(self, value: int) -> int:
@@ -136,7 +136,7 @@ class Stats:
 
         return less_than_end_elements - less_than_begin_elements
 
-    def greater(self, value):
+    def greater(self, value: int) -> int:
         """
         Args:
             value: an int

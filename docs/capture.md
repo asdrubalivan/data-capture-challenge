@@ -59,7 +59,7 @@ Classes
         Returns:
             The number of values that are between "begin" and "end"
 
-    `greater(self, value)`
+    `greater(self, value: int) ‑> int`
     :   Args:
             value: an int
         Returns:

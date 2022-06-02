@@ -96,3 +96,11 @@ Documents can be generated with the help of [docstring conventions](https://peps
 In order to get nice HTML docs run `pipenv run serve-docs` which will run a server serving HTML in the port `5000` of your `localhost`. These docs will look like the following
 
 ![Documentation](assets/docs-1.png)
+
+## Misc
+
+### Run test helper
+
+There's a `run_test.sh` file that allows you to run the tests and generate the coverage reports.
+
+With the `--serve` flag, you can serve these coverage reports automatically after running all the tests.

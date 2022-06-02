@@ -26,7 +26,7 @@ class DataCapture:
         return sum(self.dict_mapping.values())
 
     def __repr__(self):  # pragma: no cover
-        return f"DataCapture(min:{self.min}, max:{self.max}, elements:{len(self)})"
+        return f"DataCapture(min:{self.min}, max:{self.max}, elements:{len(self)})"  # noqa: E501
 
     def add(self, value: int) -> None:
         """
@@ -91,7 +91,7 @@ class Stats:
         self.accumulated_stats = accumulated_stats
 
     def __repr__(self):  # pragma: no cover
-        return f"Stats(({self.data.min=}, {self.data.max=}),{self.accumulated_stats=})"
+        return f"Stats(({self.data.min=}, {self.data.max=}),{self.accumulated_stats=})"  # noqa: E501
 
     def _clamp(self, val):
         return max(self.data.min, min(val, self.data.max))
@@ -144,7 +144,8 @@ class Stats:
             The number of values captured greater than value
         """
         if self.data.min <= value <= self.data.max:
-            return self.accumulated_stats[self.data.max] - self.accumulated_stats[value]
+            last = self.accumulated_stats[self.data.max]
+            return last - self.accumulated_stats[value]
         elif value > self.data.max:
             return 0
         else:

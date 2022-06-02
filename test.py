@@ -90,7 +90,10 @@ def test_stats(capture: DataCapture):
     Tests that stats work correctly
     """
     stats = capture.build_stats()
-    assert stats.less(4) == 2  # should return 2 (only two values 3, 3 are less than 4)
+
+    # should return 2 (only two values 3, 3 are less than 4)
+    assert stats.less(4) == 2
+
     assert stats.less(20) == 5
     assert stats.less(1) == 0
     assert (

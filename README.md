@@ -75,6 +75,10 @@ TOTAL          101      0   100%
 
 `pipenv run serve-coverage-html` spins a `http.server` in the `htmlcov` directory.
 
+### Lint
+
+`pipenv run flake8` runs [flake8 linter](https://flake8.pycqa.org/en/latest/).
+
 ---
 
 It should look a bit like this:

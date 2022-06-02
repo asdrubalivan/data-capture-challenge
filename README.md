@@ -97,6 +97,14 @@ In order to get nice HTML docs run `pipenv run serve-docs` which will run a serv
 
 ![Documentation](assets/docs-1.png)
 
+## Docs
+
+Already generated docs can be found for the three modules of this project
+
+- [Capture](docs/capture.md)
+- [Main](docs/main.md)
+- [Test](docs/test.md)
+
 ## Misc
 
 ### Run test helper

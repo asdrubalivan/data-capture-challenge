@@ -75,12 +75,6 @@ TOTAL          101      0   100%
 
 `pipenv run serve-coverage-html` spins a `http.server` in the `htmlcov` directory.
 
-### Lint
-
-`pipenv run flake8` runs [flake8 linter](https://flake8.pycqa.org/en/latest/).
-
----
-
 It should look a bit like this:
 
 Index of reports            |  Coverage report
@@ -88,6 +82,10 @@ Index of reports            |  Coverage report
 ![Index of reports](assets/coverage-1.png)  |  ![Coverage report](assets/coverage-2.png)
 
 > ⚠️ **Note**: This command should be run after running `pipenv run coverage-html`
+
+### Lint
+
+`pipenv run flake8` runs [flake8 linter](https://flake8.pycqa.org/en/latest/).
 
 ### Generate docs
 

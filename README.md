@@ -1,8 +1,8 @@
-# Team International Technical Challenge
+# Data Capture Technical Challenge
 
 ## Introduction
 
-This is a technical chan
+This is a technical challenge that involves capturing integers and then building stats wih them.
 
 ## Setup
 
